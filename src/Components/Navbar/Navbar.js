@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {Link} from "react-router-dom";
 import './Navbar.css';
+import { AuthContext } from '../../AuthProvider';
+// const {isAdmin} = useContext(AuthContext)
 
 const Navbar = () => {
+  const {logout, isAdmin}=useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -13,7 +16,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-logo">
-          <a href="/">Your Logo</a>
+          <a href="/">BuildHerFuture</a>
         </div>
         <div className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
           <ul className="navbar-list">
@@ -21,13 +24,23 @@ const Navbar = () => {
               <Link to="/">Home</Link>
             </li>
             <li className="navbar-item">
-              <Link to="/CareerRoadMap">CareerRoadMap</Link>
+              <Link to="/careerroadmap">CareerRoadMap</Link>
             </li>
             <li className="navbar-item">
-              <Link to="/Blogs">Blogs</Link>
+              <Link to="/blogs">Blogs</Link>
             </li>
             <li className="navbar-item">
-              <Link to="/aboutUs">About Us</Link>
+              <Link to="/aboutus">About Us</Link>
+            </li>
+            {/* {isAdmin ? 
+            <li className="navbar-item">
+              <Link to="/addblogs">Add Blog</Link>
+            </li>:<></>
+            } */}
+            <li className="navbar-item logout" onClick={()=>{
+              logout()
+            }}>
+              <p>Logout</p>
             </li>
           </ul>
         </div>
@@ -40,16 +53,21 @@ const Navbar = () => {
       {isMenuOpen && (
         <ul className="mobile-navbar-list">
             <li className="navbar-item">
-              <Link to="/home">Home</Link>
+              <Link to="/">Home</Link>
             </li>
             <li className="navbar-item">
-              <Link to="/CareerRoadMap">CareerRoadMap</Link>
+              <Link to="/careerroadmap">CareerRoadMap</Link>
             </li>
             <li className="navbar-item">
-              <Link to="/Blogs">Blogs</Link>
+              <Link to="/blogs">Blogs</Link>
             </li>
             <li className="navbar-item">
-              <Link to="/aboutUs">About Us</Link>
+              <Link to="/aboutus">About Us</Link>
+            </li>
+            <li className="navbar-item logout" onClick={()=>{
+              logout()
+            }}>
+              Logout
             </li>
         </ul>
       )}

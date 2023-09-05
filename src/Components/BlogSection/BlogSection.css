@@ -1,0 +1,133 @@
+.jobSection{
+    margin-top: 2vh;
+    display:flex;
+    padding: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card{
+    width: 380px; 
+    display: inline-block;
+    flex-direction: column;
+    background: rgb(244, 244, 244);
+    border:1px solid rgb(211, 211, 211);
+    border-radius: 10px;
+    margin:10px;
+    padding:10px;
+    box-shadow: 5px 5px 10px 1px rgba(99, 99, 99, 0.629);
+}
+
+.card-top{
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.card-top-left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: row; */
+}
+
+.card-middle{
+    justify-content:left;
+    align-items: left;
+
+}
+
+.card-middle p{
+
+    padding: 2px;
+    overflow: scroll;
+    height:50px;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+
+}
+
+.card-middle p::-webkit-scrollbar{
+    display: none;
+}
+.card-bottom{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    margin-top: 10px;
+    padding-top:10px;
+    /* align-items: center; */
+    border-top: 1px solid rgba(132, 132, 132, 0.185);
+}
+
+.card-bottom-left{
+    margin: 0;
+    padding:0;
+    border-radius: 5px;
+
+}
+
+.card-bottom-right{
+    display: flex;
+    margin:0;
+    justify-content: space-between;
+    border-radius: 5px;
+    /* border:1px solid black; */
+}
+
+.card-top-right button{
+    padding:10px;
+    background-color: rgb(149, 199, 255);
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+}
+
+.card-img-logo{
+    width: 40px; /* Set the container width */
+    height: 40px; /* Set the container height */
+    border-radius: 50%; /* Make the container circular */
+    overflow: hidden; 
+}
+
+.card-img-logo img{
+    width: 100%; /* Make the image cover the container */
+    height: 100%; /* Make the image cover the container */
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+  
+}
+
+.card-top-right button a{
+   text-decoration: none;
+   color:rgb(0, 0, 0);
+
+}
+
+.card-top-head{
+    font-size: 1.8rem;
+    margin-left: 20px;
+}
+
+.card-bottom-left p, .card-bottom-right p{
+    margin:5px 0;
+}
+
+.card-bottom-head,.card-bottom-left, .card-middle-head{
+    color: rgb(0, 4, 130);
+    text-decoration: solid;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+@media screen and (max-width:800px) {
+    .card{
+        width:80%;
+        display: flex;
+    }
+    .jobSection{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}

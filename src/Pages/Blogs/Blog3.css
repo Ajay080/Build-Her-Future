@@ -1,0 +1,36 @@
+.blog3{
+    /* height:100vh; */
+    /* background-color: rgba(172, 40, 40, 0.728); */
+    padding-top:20px;
+
+}
+
+.addBlog{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding:10px;
+	border:1px solid rgba(0, 0, 0, 0.458);
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+
+}
+
+.addBlog_head{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.addBlog_main{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addBlog_head p{
+    font-size: 1.6rem;
+    font-weight:bold;
+    color: rgb(55, 55, 121)
+}

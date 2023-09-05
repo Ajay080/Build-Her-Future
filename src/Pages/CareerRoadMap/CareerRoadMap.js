@@ -39,7 +39,7 @@ export default function CareerRoadMap() {
   const onConnect = useCallback((params) => setEdges((eds) => addEdge(params, eds)), [setEdges]);
 
   return (
-    <div style={{ width: '100vw', height: '100vh' }}>
+    <div style={{ paddingTop:'2vh',width: '100vw', height: '100vh' }}>
       <ReactFlow
         nodes={nodes}
         edges={edges}

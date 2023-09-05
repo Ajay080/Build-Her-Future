@@ -8,13 +8,13 @@ const Blogs = () => {
   const [movie, setMovie] = useState([]);
   
   const getData=async()=>{
-    const response=await axios.get("http://localhost:5000/api");
+    const response=await axios.get("http://localhost:8000/api");
     setBackendData(response.data);
   }
 
   const fetchMovie = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/movies');
+      const response = await axios.get('http://localhost:8000/movies');
       setMovie(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -46,7 +46,7 @@ const Blogs = () => {
       "method": "GET"
     });
     try {
-      const response = await axios.get('http://localhost:5000/women-jobs');
+      const response = await axios.get('http://localhost:8000/women-jobs');
       setJobs(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
