@@ -10,7 +10,7 @@ const AuthProvider = (props) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false)
     const [token, setToken] = useState("")
     const [isAdmin, setIsAdmin]=useState(false)
-    const url= process.env.url || 'http://localhost:8000';
+    const url= process.env.url;
 
     const navigate = useNavigate()
 
