@@ -16,11 +16,12 @@ const AddJob = () => {
     deadline:"",
     time:""
   });
+  const url= process.env.url || 'http://localhost:8000'
   const handleSubmit = async (e) => {
       e.preventDefault();
       try{
         console.log("This is form data "+JSON.stringify(formData, null, 4))
-        const {setFormData:res} = await axios.post(`http://localhost:8000/addblogs/newpost`,formData,{
+        const {setFormData:res} = await axios.post(`${url}/addblogs/newpost`,formData,{
           headers:{
             Authorization:`Bearer ${token}`
           }

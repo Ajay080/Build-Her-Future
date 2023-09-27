@@ -15,6 +15,7 @@ const BlogSection = () => {
   const [isEdit, setEdit]= useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1)
+  const url= process.env.url || 'http://localhost:8000'
 
 
   const nextPage = () => {
@@ -31,7 +32,7 @@ const BlogSection = () => {
 
   const fetchData= async(page)=>{
     try{
-      const response=await axios.get(`http://localhost:8000/addblogs/getpost?page=${page}`);
+      const response=await axios.get(`${url}/addblogs/getpost?page=${page}`);
       setData(response.data.jobCards);
       setTotalPages(response.data.totalPages);
     }
@@ -42,7 +43,7 @@ const BlogSection = () => {
 
   const CrossClick=async(cardId)=>{
     try{
-      const response=await axios.delete(`http://localhost:8000/addblogs/deletepost/${cardId}`);
+      const response=await axios.delete(`${url}/addblogs/deletepost/${cardId}`);
       setData(data.filter((card)=>card._id!==cardId));
       console.log("DELETED POST", response)
     }
@@ -76,7 +77,7 @@ const BlogSection = () => {
       console.log("This is form data "+JSON.stringify(formData, null, 4))
       console.log("ID",formData._id)
       try{
-          await axios.patch(`http://localhost:8000/addblogs/editpost/${formData._id}`,formData
+          await axios.patch(`${url}/addblogs/editpost/${formData._id}`,formData
         ,{
           headers:{
             Authorization:`Bearer ${token}`

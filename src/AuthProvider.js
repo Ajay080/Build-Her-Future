@@ -10,6 +10,7 @@ const AuthProvider = (props) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false)
     const [token, setToken] = useState("")
     const [isAdmin, setIsAdmin]=useState(false)
+    const url= process.env.url || 'http://localhost:8000';
 
     const navigate = useNavigate()
 
@@ -23,7 +24,7 @@ const AuthProvider = (props) => {
 
     const signup = async (name, email, password) => {
         try {
-            const data = await (await axios.post(`http://localhost:8000/users/signup`, {
+            const data = await (await axios.post(`${url}/users/signup`, {
                 name,
                 email,
                 password
@@ -45,7 +46,7 @@ const AuthProvider = (props) => {
     }
     const login = async (name, email, password) => {
         try {
-            const response = await axios.post(`http://localhost:8000/users/login`, {
+            const response = await axios.post(`${url}/users/login`, {
                 name, email, password
             });
             console.log("fjrjsfs" +response.data)
@@ -67,7 +68,7 @@ const AuthProvider = (props) => {
 
     const checkToken = async (token) => {
         try {
-            const data = await (await axios.get(`http://localhost:8000/users/me`, {
+            const data = await (await axios.get(`${url}/users/me`, {
                 headers: {
                     "Authorization": `Bearer ${token}`
                 }
