@@ -1,0 +1,129 @@
+/* src/components/AboutUs.css */
+.class-detail{
+    font-size:1.2rem;
+}
+
+.gif-container{
+    max-width:1000px;
+}
+
+.about-us-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px;
+    font-size:20px;
+  }
+
+.gif-container img{
+    object-fit: cover;
+    width:100%;
+    height:400px;
+    border-color: black;
+    border: 2px solid black;
+    border-radius: 30px;
+    box-shadow: 3px 3px 3px 2px #888888;
+}
+
+.about-us-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px;
+  }
+  
+  .about-us-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px;
+  }
+  
+  .about-us-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+  
+  .about-us-content p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  .how-made{
+    font-size: 1.2em;
+  }
+  .how-made p{
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  
+  .about-us-content h2 {
+    font-size: 1.2 em;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  
+  .about-us-content ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  
+  .about-us-content li {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  
+  .about-author {
+    flex: 1;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    margin-left: 40px;
+  }
+  
+  .about-author h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .about-author p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+
+  .about-us{
+    margin-top: 4rem;
+    /* font-size: 1.2em; */
+  }
+
+  .about-us p{
+    font-size: 1.2 em;
+  }
+
+  .outcome-achieve{
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  .outcome-achieve p, h4{
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  .social-media{
+    display: flex;
+    width:100px;
+    justify-content: space-between;
+    /* margin-right: ; */
+    font-size: 2rem;
+  }
+
+  @media screen and (max-width:700px) {
+    
+    .about-us-container {
+        flex-direction: column;
+    }
+
+}

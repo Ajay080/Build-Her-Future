@@ -22,8 +22,8 @@ import slide1 from "../../Img/Slide1.png"
 import slide2 from "../../Img/Slide2.png"
 import slide3 from "../../Img/Slide3.png"
 
+
 const HomePage = () => {
-  // Slider settings
   const sliderSettings = {
     dots: true,
     infinite: true,
@@ -40,28 +40,13 @@ const HomePage = () => {
       <header className="header">
         <Slider {...sliderSettings}>
           <div className="slide">
-            {/* <div className="slide-content"> */}
-              {/* <div className="quote">"Empowerment is not a buzzword, it's a guiding principle."</div> */}
-              {/* <div className="slide-image"> */}
                 <img src={slide1} alt="Successful Woman" />
-              {/* </div> */}
-            {/* </div> */}
           </div>
           <div className="slide">
-            {/* <div className="slide-content"> */}
-              {/* <div className="quote">"Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle."</div> */}
-              {/* <div className="slide-image"> */}
                 <img src={slide2} alt="Successful Woman" />
-              {/* </div> */}
-            {/* </div> */}
           </div>
           <div className="slide">
-            {/* <div className="slide-content"> */}
-              {/* <div className="quote">"The future belongs to those who believe in the beauty of their dreams."</div> */}
-              {/* <div className="slide-image"> */}
                 <img src={slide3} alt="Successful Woman" />
-              {/* </div> */}
-            {/* </div> */}
           </div>
         </Slider>
       </header>
@@ -85,9 +70,9 @@ const HomePage = () => {
         work towards gender parity in STEM, unlocking
         a more inclusive and prosperous future for all.
         <br/>
-        <p>
+        
         <strong>Some of the reason behind this are listed below</strong>
-        </p>
+        
         </p>
         
       </div>

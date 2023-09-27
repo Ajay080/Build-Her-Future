@@ -7,51 +7,33 @@ import { ImCross} from 'react-icons/im';
 import { useContext } from 'react'
 import { AuthContext } from '../../AuthProvider'
 import {BiEdit} from 'react-icons/bi'
-// import e from 'express'
+
 
 const BlogSection = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([""]);
   const {token ,isAdmin}=useContext(AuthContext);
   const [isEdit, setEdit]= useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1)
 
-  // const [title,setTitle]=useState();
-  // const [role, setRole]= useState();
-  // const [category, setCategory]= useState();
-  // const [deadline, SetDeadline]= useState()
-  // const data=[
-  //   {
-  //     "title":"Sheldon jackson",
-  //     "role":"Web Developer",
-  //     "category":"Full Time",
-  //     "lastDate":"3 sep 23",
-  //     "description":"this is the description of jackson",
-  //   },
-  //   {
-  //     "title":"Shinendra shinde",
-  //     "role":"Web Developer",
-  //     "category":"Full Time",
-  //     "lastDate":"3 sep 23",
-  //     "description":"this is the description of shinde"
-  //   },
-  //   {
-  //     "title":"Sheldon jackson",
-  //     "role":"Web Developer",
-  //     "category":"Full Time",
-  //     "lastDate":"3 sep 23",
-  //     "description":"this is the description of jackson",
-  //   },
-  //   {
-  //     "title":"Shinendra shinde",
-  //     "role":"Web Developer",
-  //     "category":"Full Time",
-  //     "lastDate":"3 sep 23",
-  //     "description":"this is the description of shinde this is the description of shindethis is the description of shindethis is the description of shinde this is the description of shinde this is the description of shindethis is the description of shindethis is the description of shinde this is the description of shinde this is the description of shindethis is the description of shindethis is the description of shinde this is the description of shinde this is the description of shindethis is the description of shindethis is the description of shinde this is the description of shinde this is the description of shindethis is the description of shindethis is the description of shindethis is the description of shinde this is the description of shindethis is the description of shindethis is the description of shinde this is the description of shinde this is the description of shindethis is the description of shindethis is the description of shindev this is the description of shinde this is the description of shindethis is the description of shindethis is the description of shinde this is the description of shinde this is the description of shindethis is the description of shindethis is the description of shinde this is the description of shinde this is the description of shindethis is the description of shindethis is the description of shinde this is the description of shinde this is the description of shindethis is the description of shindethis is the description of shinde this is the description of shinde this is the description of shindethis is the description of shindethis is the description of shinde v"
-  //   },
-  // ]
-  const fetchData= async()=>{
+
+  const nextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage((prevPage) => prevPage + 1);
+    }
+  };
+
+  const prevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage((prevPage) => prevPage - 1);
+    }
+  };
+
+  const fetchData= async(page)=>{
     try{
-      const response=await axios.get(`http://localhost:8000/addblogs/getpost`);
-      setData(response.data);
+      const response=await axios.get(`http://localhost:8000/addblogs/getpost?page=${page}`);
+      setData(response.data.jobCards);
+      setTotalPages(response.data.totalPages);
     }
     catch(error){
       console.error('Error fetching data:', error);
@@ -70,24 +52,17 @@ const BlogSection = () => {
   }
 
   const SetThings=async(cardID)=>{
-    // console.log(data({id}))
     try{
       setEdit(true);
       setFormData({_id:cardID});
       
     }
     catch(e){
-      console("nhi chal raha kuch", e);
+      console(e);
     }
   }
 
   const [formData, setFormData]=useState({
-    // _id:data({_id}),
-    // title:data({title}),
-    // description:data({description}),
-    // role:data({role}),
-    // category:data({category}),
-    // deadline:data({deadline})
     _id:"",
     title:"",
     description:"",
@@ -97,39 +72,16 @@ const BlogSection = () => {
 
   });
 
-  // const handleSubmit=async (e)=>{
-  //   e.preventDefault();
-    // try{
-    //   console.log(formData);
-    // }
-    // if (response.ok) {
-    //   console.log('Form submitted successfully');
-    // } else {
-    //   console.error('Form submission failed');
-    // }
-  // catch (error) {
-  //   console.error('Error submitting form', error);
-  // }
-  // }
   const handleSubmit = async () => {
-      // e.preventDefault();
       console.log("This is form data "+JSON.stringify(formData, null, 4))
       console.log("ID",formData._id)
       try{
-        
-        // console.log("This is form data "+JSON.stringify(formData, null, 4))
-        await axios.patch(`http://localhost:8000/addblogs/editpost/${formData._id}`,formData
+          await axios.patch(`http://localhost:8000/addblogs/editpost/${formData._id}`,formData
         ,{
           headers:{
             Authorization:`Bearer ${token}`
           }
         })
-
-
-        
-        // console.log("This is form data "+formData)
-        // console.log(res.message)
-      
       } catch (error) {
          
           console.log("MILO",error)
@@ -152,16 +104,34 @@ const BlogSection = () => {
 		setFormData({ ...formData, [input.name]: input.value });
 	};
 
-  useEffect(()=>{
-    fetchData();
+  const getDate=(dateTimeString)=>{
+    const dateTime = new Date(dateTimeString);
+
+    const year = dateTime.getFullYear();
+    const month = dateTime.getMonth() + 1; // Months are zero-based, so we add 1
+    const day = dateTime.getDate();
     
-  },[handleSubmit]);
+    const hours = dateTime.getUTCHours();
+    const minutes = dateTime.getUTCMinutes();
+    const seconds = dateTime.getUTCSeconds();
+    
+    const formattedDate = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+    const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    
+    // console.log("Formatted Date:", formattedDate); // Output: "2023-08-02"
+    // console.log("Formatted Time:", formattedTime); // Output: "00:00:00"
+    return formattedDate+" "+formattedTime;
+  }
+  useEffect(()=>{
+    fetchData(currentPage);
+    
+  },[handleSubmit, currentPage]);
 
   return (
+    <>
     <ul className="jobSection">
       {data.map((e) => (     
         <li key={e._id} className="card">
-          {/* {isEdit? setFormData({_id:e._id}):null} */}
           <div className="card-top">
             <div className="card-top-left">
               <div className="card-img-logo">
@@ -183,7 +153,7 @@ const BlogSection = () => {
             <div className="card-top-right">
               {isAdmin?<button style={{marginRight:"4px", backgroundColor:"red"}} onClick={()=>CrossClick(e._id)}><ImCross/></button>:null}
               {isAdmin?<button style={{marginRight:"4px", backgroundColor:"rgb(149, 199, 255)"}} onClick={()=> SetThings(e._id)} ><BiEdit/></button>:null}
-              <button><a href="">Apply</a></button>
+              <button><a href={e.url}>Apply</a></button>
             </div>
           </div>
           <div className="card-middle">
@@ -233,16 +203,24 @@ const BlogSection = () => {
                       onChange={handleInputChange}
                       placeholder="deadline" 
                     />:
-              <p className="card-bottom-head">Deadline : ISODate({e.deadline})</p>}
+              <p className="card-bottom-head">Deadline :{getDate(e.deadline)}</p>}
             </div>
-            {/* <div className="card-bottom-right">
-              <p className="card-bottom-head">Deadline</p>
-              <p><strong>{e.lastDate}</strong></p>
-            </div>   */}
           </div>
         </li>
       ))}
     </ul>
+    <div className='pagination'>
+    <button onClick={prevPage} disabled={currentPage === 1}>
+        Previous
+      </button>
+      <span>
+        Page {currentPage} of {totalPages}
+      </span>
+      <button onClick={nextPage} disabled={currentPage === totalPages}>
+        Next
+      </button>
+    </div>
+    </>
   )
 }
 

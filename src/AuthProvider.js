@@ -1,12 +1,10 @@
 import axios from "axios"
 import { createContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import WrongInput from "./LoginSignup/WrongInput"
 const bcrypt=require('bcryptjs')
 
 export const AuthContext = createContext(null)
-// const AuthContext=createContext();
-// export default AuthContext;
+
 
 const AuthProvider = (props) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -30,7 +28,7 @@ const AuthProvider = (props) => {
                 email,
                 password
             })).data
-            console.log(data)
+            // console.log(data)
             const { token, user } = data
             localStorage.setItem('token', token)
             if(data.user.role==='admin'){
@@ -41,7 +39,6 @@ const AuthProvider = (props) => {
             navigate('/')
             
         } catch (error) {
-            {<WrongInput/>}
             console.error(error)
 
         }
@@ -55,7 +52,7 @@ const AuthProvider = (props) => {
             const data= response.data
             // const { tokens, user } = data
             const token=response.data.token
-            console.log("sdsjdsdsj", token)
+            // console.log("sdsjdsdsj", token)
             if(data.user.role==='admin'){
                 setIsAdmin(true)
             }
@@ -75,7 +72,7 @@ const AuthProvider = (props) => {
                     "Authorization": `Bearer ${token}`
                 }
             })).data
-            console.log(data)
+            // console.log(data)
             if(data.role==='admin'){
                 setIsAdmin(true)
             }
@@ -88,8 +85,6 @@ const AuthProvider = (props) => {
             }
 
         } catch (error) {
-            console.log("dhsh");
-
             console.error(error)
         }
     }
@@ -97,7 +92,7 @@ const AuthProvider = (props) => {
     useEffect(() => {
         (async () => {
             const token = localStorage.getItem('token')
-            console.log("token:" , token)
+            // console.log("token:" , token)
             if (token) {
                 await checkToken(token)
                 navigate(

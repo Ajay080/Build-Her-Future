@@ -1,7 +1,7 @@
 import React from 'react'
 import './Blog3.css'
 
-import AddBlogs from '../AddBlogs/AddBlogs'
+import AddBlogs from '../AddJob/AddJob'
 import { AuthContext } from '../../AuthProvider'
 import { useContext } from 'react'
 import BlogSection from '../../Components/BlogSection/BlogSection'
@@ -22,12 +22,7 @@ const Blogs3 = () => {
         :
         null
       }
-      {/* {<BlogSection/>} */}
-      
       {<BlogSection/>}
-
-
-      
     </div>
   )
 }

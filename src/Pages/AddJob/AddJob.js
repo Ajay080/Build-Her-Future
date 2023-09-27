@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
-import './AddBlogs.css'
+import './AddJob.css'
 import axios from 'axios';
 import { AuthContext } from '../../AuthProvider'
 import { useContext } from 'react'
-// import { response } from 'express';
 
 
-const AddBlogs = () => {
+const AddJob = () => {
   const{token}=useContext(AuthContext);
   const [formData, setFormData]=useState({
     title:"",
@@ -17,21 +16,6 @@ const AddBlogs = () => {
     deadline:"",
     time:""
   });
-
-  // const handleSubmit=async (e)=>{
-  //   e.preventDefault();
-    // try{
-    //   console.log(formData);
-    // }
-    // if (response.ok) {
-    //   console.log('Form submitted successfully');
-    // } else {
-    //   console.error('Form submission failed');
-    // }
-  // catch (error) {
-  //   console.error('Error submitting form', error);
-  // }
-  // }
   const handleSubmit = async (e) => {
       e.preventDefault();
       try{
@@ -41,9 +25,7 @@ const AddBlogs = () => {
             Authorization:`Bearer ${token}`
           }
         })
-
-        // console.log("This is form data "+formData)
-        console.log(res.message)
+        // console.log(res.message)
       
       } catch (error) {
          
@@ -156,4 +138,4 @@ const AddBlogs = () => {
   )
 }
 
-export default AddBlogs
+export default AddJob

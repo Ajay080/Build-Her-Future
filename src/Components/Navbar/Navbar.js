@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react';
 import {Link} from "react-router-dom";
 import './Navbar.css';
 import { AuthContext } from '../../AuthProvider';
-// const {isAdmin} = useContext(AuthContext)
 
 const Navbar = () => {
   const {logout, isAdmin}=useContext(AuthContext);
@@ -27,16 +26,11 @@ const Navbar = () => {
               <Link to="/careerroadmap">CareerRoadMap</Link>
             </li>
             <li className="navbar-item">
-              <Link to="/blogs">Blogs</Link>
+              <Link to="/jobportal">Job Portal</Link>
             </li>
             <li className="navbar-item">
               <Link to="/aboutus">About Us</Link>
             </li>
-            {/* {isAdmin ? 
-            <li className="navbar-item">
-              <Link to="/addblogs">Add Blog</Link>
-            </li>:<></>
-            } */}
             <li className="navbar-item logout" onClick={()=>{
               logout()
             }}>
@@ -59,7 +53,7 @@ const Navbar = () => {
               <Link to="/careerroadmap">CareerRoadMap</Link>
             </li>
             <li className="navbar-item">
-              <Link to="/blogs">Blogs</Link>
+              <Link to="/jobportal">Job Portal</Link>
             </li>
             <li className="navbar-item">
               <Link to="/aboutus">About Us</Link>
