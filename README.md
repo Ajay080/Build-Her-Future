@@ -1,70 +1,44 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Build Her Future
 
-## Available Scripts
+Welcome to the Build Her Future website repository! This project is dedicated to addressing the underrepresentation of women in the [STEM](https://en.wikipedia.org/wiki/Science,_technology,_engineering,_and_mathematics) field by providing a platform that offers resources, information, and a supportive community for women pursuing careers in [STEM](https://en.wikipedia.org/wiki/Science,_technology,_engineering,_and_mathematics).
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Table of Contents
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Introduction
+- Features
+- Technology Used
+- License
+- Contact
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Introduction
 
-### `npm run build`
+This project aims to reduce the gender gap in the [STEM](https://en.wikipedia.org/wiki/Science,_technology,_engineering,_and_mathematics) field by creating a platform that offers resources, educational content, success stories, mentorship opportunities, and a supportive community for women interested in [STEM](https://en.wikipedia.org/wiki/Science,_technology,_engineering,_and_mathematics) careers.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Resourceful Content**: Access to articles, guides, and encourage women to enter in [STEM](https://en.wikipedia.org/wiki/Science,_technology,_engineering,_and_mathematics).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Interactive Career Map**: Offer an interactive and user-friendly career map that showcases a variety of career paths within the [STEM](https://en.wikipedia.org/wiki/Science,_technology,_engineering,_and_mathematics) domain. Users can explore and click on different branches to learn more about each career option.
 
-### `npm run eject`
+- **Success Stories**: Real-life success stories from women in the [STEM](https://en.wikipedia.org/wiki/Science,_technology,_engineering,_and_mathematics) field for motivation and inspiration.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Diverse STEM Pathways**: Display an array of [STEM](https://en.wikipedia.org/wiki/Science,_technology,_engineering,_and_mathematics)-related careers, ranging from traditional roles to emerging fields. Include roles such as software development, data analysis, engineering, environmental science, healthcare, and more.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Job Opportunities**: Job boards or a job portal specifically curated with job listings in the construction industry, promoting equal opportunities for women in this field.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Technology Used
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **ReactJs**: 
+- **MongoDB**
+- **NodeJs**
+- **ExpressJs**
 
-## Learn More
+# License
+This project is licensed under the [MIT](https://choosealicense.com/licenses/mit/) License.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Contact
+For inquiries or support, please contact us at <ajaysinghrathaur1009@gmail.com>.
