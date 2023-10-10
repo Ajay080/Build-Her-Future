@@ -1,7 +1,7 @@
 import axios from "axios"
 import { createContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-const bcrypt=require('bcryptjs')
+// const bcrypt=require('bcryptjs')
 
 export const AuthContext = createContext(null)
 
@@ -10,7 +10,6 @@ const AuthProvider = (props) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false)
     const [token, setToken] = useState("")
     const [isAdmin, setIsAdmin]=useState(false)
-    const url= process.env.url;
 
     const navigate = useNavigate()
 
@@ -24,13 +23,13 @@ const AuthProvider = (props) => {
 
     const signup = async (name, email, password) => {
         try {
-            const data = await (await axios.post(`${url}/users/signup`, {
+            const data = await (await axios.post(`https://builherfuturebackend.onrender.com/users/signup`, {
                 name,
                 email,
                 password
             })).data
-            // console.log(data)
-            const { token, user } = data
+            console.log(data)
+            const { token } = data
             localStorage.setItem('token', token)
             if(data.user.role==='admin'){
                 setIsAdmin(true)
@@ -41,12 +40,12 @@ const AuthProvider = (props) => {
             
         } catch (error) {
             console.error(error)
-
+console.log("sign err")
         }
     }
     const login = async (name, email, password) => {
         try {
-            const response = await axios.post(`${url}/users/login`, {
+            const response = await axios.post(`https://builherfuturebackend.onrender.com/users/login`, {
                 name, email, password
             });
             console.log("fjrjsfs" +response.data)
@@ -68,7 +67,7 @@ const AuthProvider = (props) => {
 
     const checkToken = async (token) => {
         try {
-            const data = await (await axios.get(`${url}/users/me`, {
+            const data = await (await axios.get(`https://builherfuturebackend.onrender.com/users/me`, {
                 headers: {
                     "Authorization": `Bearer ${token}`
                 }

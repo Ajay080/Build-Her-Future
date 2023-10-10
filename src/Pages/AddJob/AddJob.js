@@ -20,7 +20,7 @@ const AddJob = () => {
       e.preventDefault();
       try{
         console.log("This is form data "+JSON.stringify(formData, null, 4))
-        const {setFormData:res} = await axios.post(`https://builherfuturebackend.onrender.com/addblogs/newpost`,formData,{
+        axios.post(`https://builherfuturebackend.onrender.com/addblogs/newpost`,formData,{
           headers:{
             Authorization:`Bearer ${token}`
           }
